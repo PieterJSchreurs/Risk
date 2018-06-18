@@ -43,15 +43,12 @@ public class LevelCreater : MonoBehaviour {
     {
         List<Player> playerList = PlayerTurnHandler.GetPlayerList();
         int amountOfLandForEachPlayer = (int)(countryList.Count / PlayerTurnHandler.amountOfPlayers);
-        Debug.Log(playerList.Count + " " + countryList.Count + " " + amountOfLandForEachPlayer);
         for (int playerNumber = 0; playerNumber < playerList.Count; playerNumber++)
         {
             for (int i = 0; i < amountOfLandForEachPlayer; i++)
             {
                 Country country = countryList[i + (playerNumber * playerList.Count)];
-                Debug.Log(playerList[playerNumber].username + " " + country.GetName());
                 country.SetPlayerOwner(playerList[playerNumber]);
-                Debug.Log(country.name + playerList[playerNumber]);
             }
         }
     }

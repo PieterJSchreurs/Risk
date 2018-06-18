@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTurnHandler : MonoBehaviour {
 
     private static List<Player> playerList = new List<Player>();
     public Player playerPrefab;
+
     public static float amountOfPlayers = 4;
-    private int currentPlayerTurn = 0;
+    private static int currentPlayerTurn = 0;
     private static Player currentPlayer;
-    private Color32[] colorListNormal = { new Color32(200, 0, 0, 128), new Color32(0, 200, 0, 128), new Color32(0, 0, 200, 128), new Color32(200, 200, 0, 128),
+
+
+    private Color32[] colorListNormal = { new Color32(200, 0, 0, 128), new Color32(0, 200, 0, 128), new Color32(10, 10, 150, 128), new Color32(200, 200, 0, 128),
         new Color32(200, 0, 200, 128), new Color32(0, 200, 200, 128), };
 
     private Color32[] colorListHighlighted = { new Color32(255, 0, 0, 255), new Color32(0, 255, 0, 255), new Color32(0, 0, 255, 255), new Color32(255, 255, 0, 255),
@@ -34,7 +38,7 @@ public class PlayerTurnHandler : MonoBehaviour {
 		
 	}
 
-    public void NextPlayer()
+    public static void NextPlayer()
     {
         currentPlayerTurn++;
         currentPlayer = playerList[currentPlayerTurn == -1 ? 0 : currentPlayerTurn % playerList.Count];

@@ -3,28 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RTS;
+using UnityEngine.UI;
 
 public class UserInput : MonoBehaviour
-{ 
+{
     public static Camera mainCamera;
+    private Country _currentSelectedCountry;
+    private Player _currentPlayersturn;
+    public Text currentPlayer;
+    public GameObject attackPanelObject;
+    private AttackPanel _attackPannel;
 
     private void Awake()
     {
         mainCamera = Camera.main;
+        attackPanelObject.SetActive(false);
+        _attackPannel = attackPanelObject.GetComponent<AttackPanel>();
     }
     // Use this for initialization
     void Start()
     {
-
+        _currentPlayersturn = PlayerTurnHandler.GetCurrentPlayer();
+        SetActivePlayerText(_currentPlayersturn);
     }
 
     // Update is called once per frame
     void Update()
     {
-            MoveCamera();
-            RotateCamera();
-            MouseActivity();
+        MoveCamera();
+        RotateCamera();
+        MouseActivity();
+        KeyboardInput();
     }
+
+    private void KeyboardInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            PlayerTurnHandler.NextPlayer();
+            _currentPlayersturn = PlayerTurnHandler.GetCurrentPlayer();
+            SetActivePlayerText(_currentPlayersturn);
+        }
+    }
+
+    public void SetActivePlayerText(Player pPlayer)
+    {
+        currentPlayer.text = "Players turn:\n" + pPlayer.username;
+    }
+
 
     private void MouseActivity()
     {
@@ -35,12 +61,13 @@ public class UserInput : MonoBehaviour
     private void LeftMouseClick()
     {
         GameObject hitObject = FindHitObject();
-        if(hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
+        if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
         {
-            //Country country = hitObject.GetComponent<Country>();
-            //country.Select();
-            //Player player = PlayerTurnHandler.GetCurrentPlayer();
-            //country.SetPlayerOwner(player);
+            if (_currentSelectedCountry != null)
+            { _currentSelectedCountry.Deselect(); }
+            Country country = hitObject.GetComponent<Country>();
+            country.Select();
+            _currentSelectedCountry = country;
         }
     }
 
@@ -54,11 +81,15 @@ public class UserInput : MonoBehaviour
 
     private void RightMouseClick()
     {
-        //if (player.hud.MouseInBounds() && !Input.GetKey(KeyCode.LeftAlt) && player.SelectedObject)
-        //{
-        //    player.SelectedObject.SetSelection(false);
-        //    player.SelectedObject = null;
-        //}
+        GameObject hitObject = FindHitObject();
+        if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
+        {
+            Country attackedCountry = hitObject.GetComponent<Country>();
+            //Check if the two countries are connected.
+            //Check if the country is enemy.
+            attackPanelObject.SetActive(true);
+            _attackPannel.StartAttack(_currentSelectedCountry, attackedCountry);
+        }
     }
 
     private void RotateCamera()
@@ -89,7 +120,7 @@ public class UserInput : MonoBehaviour
         float screenY = Screen.height;
 
         ScreenScroller(xpos, ypos, screenX, screenY);
-       
+
     }
 
     private void ScreenScroller(float xpos, float ypos, float screenX, float screenY)

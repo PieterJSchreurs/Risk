@@ -283,6 +283,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Army.cs" />
+    <Compile Include="Assets\Scripts\AttackHandler.cs" />
+    <Compile Include="Assets\Scripts\AttackPanel.cs" />
     <Compile Include="Assets\Scripts\Country.cs" />
     <Compile Include="Assets\Scripts\CountryHandler.cs" />
     <Compile Include="Assets\Scripts\ISelectAble.cs" />
