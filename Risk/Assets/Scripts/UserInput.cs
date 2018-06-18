@@ -92,6 +92,11 @@ public class UserInput : MonoBehaviour
         }
     }
 
+    public void CloseAttackScreen()
+    {
+        attackPanelObject.SetActive(false);
+    }
+
     private void RotateCamera()
     {
         Vector3 origin = mainCamera.transform.eulerAngles;

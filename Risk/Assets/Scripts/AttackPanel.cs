@@ -35,8 +35,10 @@ public class AttackPanel : MonoBehaviour {
 
     }
 
-    public void StartAttack(Country pCurrentSelectedArmy, Country pCurrentAttackedCountry)
+    public void StartAttack(Country pCurrentSelectCountry, Country pCurrentAttackedCountry)
     {
-        statusText.text = "This is a battle between " + pCurrentSelectedArmy.GetPlayerOwner().username + " and " + pCurrentAttackedCountry.GetPlayerOwner().username + " on the country of " + pCurrentAttackedCountry.GetName();
+        currentSelectedCountry = pCurrentSelectCountry;
+        currentAttackedCountry = pCurrentAttackedCountry;
+        statusText.text = "This is a battle between " + pCurrentSelectCountry.GetPlayerOwner().username + " and " + pCurrentAttackedCountry.GetPlayerOwner().username + " on the country of " + pCurrentAttackedCountry.GetName();
     }
 }
