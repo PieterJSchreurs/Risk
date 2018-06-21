@@ -7,10 +7,12 @@ public class PlayerTurnHandler : MonoBehaviour {
 
     private static List<Player> playerList = new List<Player>();
     public Player playerPrefab;
+    public Text currentPlayerText;
 
     public static float amountOfPlayers = 4;
     private static int currentPlayerTurn = 0;
     private static Player currentPlayer;
+
 
 
     private Color32[] colorListNormal = { new Color32(200, 0, 0, 128), new Color32(0, 200, 0, 128), new Color32(10, 10, 150, 128), new Color32(200, 200, 0, 128),
@@ -31,12 +33,22 @@ public class PlayerTurnHandler : MonoBehaviour {
             playerList.Add(player);
         }
         currentPlayer = playerList[currentPlayerTurn];
+        SetActivePlayerText(currentPlayer);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            NextPlayer();
+            SetActivePlayerText(currentPlayer);
+        }
+    }
+
+    public void SetActivePlayerText(Player pPlayer)
+    {
+        currentPlayerText.text = "Players turn:\n" + pPlayer.username;
+    }
 
     public static void NextPlayer()
     {

@@ -10,13 +10,13 @@ public class UserInput : MonoBehaviour
     public static Camera mainCamera;
     private Country _currentSelectedCountry;
     private Player _currentPlayersturn;
-    public Text currentPlayer;
     public GameObject attackPanelObject;
     private AttackPanel _attackPannel;
 
     private void Awake()
     {
         mainCamera = Camera.main;
+        attackPanelObject = GameObject.FindGameObjectWithTag("AttackPanel");
         attackPanelObject.SetActive(false);
         _attackPannel = attackPanelObject.GetComponent<AttackPanel>();
     }
@@ -24,7 +24,7 @@ public class UserInput : MonoBehaviour
     void Start()
     {
         _currentPlayersturn = PlayerTurnHandler.GetCurrentPlayer();
-        SetActivePlayerText(_currentPlayersturn);
+
     }
 
     // Update is called once per frame
@@ -38,19 +38,8 @@ public class UserInput : MonoBehaviour
 
     private void KeyboardInput()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            PlayerTurnHandler.NextPlayer();
-            _currentPlayersturn = PlayerTurnHandler.GetCurrentPlayer();
-            SetActivePlayerText(_currentPlayersturn);
-        }
-    }
 
-    public void SetActivePlayerText(Player pPlayer)
-    {
-        currentPlayer.text = "Players turn:\n" + pPlayer.username;
     }
-
 
     private void MouseActivity()
     {
@@ -61,13 +50,16 @@ public class UserInput : MonoBehaviour
     private void LeftMouseClick()
     {
         GameObject hitObject = FindHitObject();
-        if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
+        if (hitObject != null)
         {
-            if (_currentSelectedCountry != null)
-            { _currentSelectedCountry.Deselect(); }
-            Country country = hitObject.GetComponent<Country>();
-            country.Select();
-            _currentSelectedCountry = country;
+            if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
+            {
+                if (_currentSelectedCountry != null)
+                { _currentSelectedCountry.Deselect(); }
+                Country country = hitObject.GetComponent<Country>();
+                country.Select();
+                _currentSelectedCountry = country;
+            }
         }
     }
 
@@ -81,20 +73,25 @@ public class UserInput : MonoBehaviour
 
     private void RightMouseClick()
     {
+
         GameObject hitObject = FindHitObject();
-        if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
+        if (hitObject != null)
         {
-            Country attackedCountry = hitObject.GetComponent<Country>();
-            //Check if the two countries are connected.
-            //Check if the country is enemy.
-            attackPanelObject.SetActive(true);
-            _attackPannel.StartAttack(_currentSelectedCountry, attackedCountry);
+            if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
+            {
+                Country attackedCountry = hitObject.GetComponent<Country>();
+                //Check if the two countries are connected.
+                //Check if the country is enemy.
+                attackPanelObject.SetActive(true);
+                _attackPannel.StartAttack(_currentSelectedCountry, attackedCountry);
+            }
         }
     }
 
     public void CloseAttackScreen()
     {
         attackPanelObject.SetActive(false);
+        Debug.Log("closing attack panel");
     }
 
     private void RotateCamera()
@@ -135,20 +132,21 @@ public class UserInput : MonoBehaviour
 
         Vector3 movement = new Vector3(0, 0, 0);
 
-        if (xpos >= screenX * 0.95 || Input.GetKey(KeyCode.D))
+        if (xpos >= screenX * 0.95 || Input.GetKey(KeyCode.D) && (mainCamera.transform.localPosition.x < 50))
         {
             movement.x += ResourceManager.ScrollSpeed;
         }
-        if (xpos <= screenX * 0.05 || Input.GetKey(KeyCode.A))
+        if (xpos <= screenX * 0.05 || Input.GetKey(KeyCode.A) && (mainCamera.transform.localPosition.x > -50))
         {
             movement.x -= ResourceManager.ScrollSpeed;
         }
 
-        if (ypos >= screenY * 0.95 || Input.GetKey(KeyCode.W))
+        if (ypos >= screenY * 0.95 || Input.GetKey(KeyCode.W) && (mainCamera.transform.localPosition.y < 50))
         {
+
             movement.y += ResourceManager.ScrollSpeed;
         }
-        if (ypos <= screenY * 0.05 || Input.GetKey(KeyCode.S))
+        if (ypos <= screenY * 0.05 || Input.GetKey(KeyCode.S) && (mainCamera.transform.localPosition.y > -40))
         {
             movement.y -= ResourceManager.ScrollSpeed;
         }

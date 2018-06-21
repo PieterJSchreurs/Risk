@@ -27,7 +27,7 @@ public class CountryHandler : MonoBehaviour {
     public Army GetArmyOnSelectedCountry(Country pCountry)
     {
         Army army = pCountry.getArmy();
-        armyOnSelectedCountry.text = army.amountOfSoldiers.ToString();
+        armyOnSelectedCountry.text = "Troops:\n" + army.amountOfSoldiers.ToString();
         return army;
     }
   
@@ -35,5 +35,6 @@ public class CountryHandler : MonoBehaviour {
     {
         selectedCountry = pCountry;
         SetSelectedCountryText(selectedCountry);
+        GetArmyOnSelectedCountry(selectedCountry);
     }
 }

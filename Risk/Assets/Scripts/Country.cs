@@ -21,6 +21,7 @@ public class Country : MonoBehaviour, ISelectAble
         _map = GameObject.FindGameObjectWithTag("Map");
         _countryHandler = _map.GetComponent<CountryHandler>();
         _currentArmyOnCountry.amountOfSoldiers = 100;
+        _playerOwner = PlayerTurnHandler.GetCurrentPlayer();
     }
 
     public Army getArmy()

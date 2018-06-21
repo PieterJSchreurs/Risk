@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Country
   - Map
+  - AttackPanel
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Continent
+    uniqueID: 989007715
+    locked: 0
+  - name: Countries
+    uniqueID: 1396280295
     locked: 0
