@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerTurnHandler : MonoBehaviour {
+public class PlayerTurnHandler : MonoBehaviour
+{
 
     private static List<Player> playerList = new List<Player>();
     public Player playerPrefab;
@@ -13,7 +14,8 @@ public class PlayerTurnHandler : MonoBehaviour {
     private static int currentPlayerTurn = 0;
     private static Player currentPlayer;
 
-
+    //colorListNormal
+    //colorListHighlighted
 
     private Color32[] colorListHighlighted = { new Color32(200, 0, 0, 128), new Color32(0, 200, 0, 128), new Color32(10, 10, 150, 128), new Color32(200, 200, 0, 128),
         new Color32(200, 0, 200, 128), new Color32(0, 200, 200, 128), };
@@ -22,7 +24,8 @@ public class PlayerTurnHandler : MonoBehaviour {
         new Color32(255, 0, 255, 255), new Color32(0, 255, 255, 255), };
 
     // Use this for initialization
-    void Awake () {
+    void Awake()
+    {
         for (int i = 0; i < amountOfPlayers; i++)
         {
             Player player = Instantiate(playerPrefab);
@@ -34,10 +37,11 @@ public class PlayerTurnHandler : MonoBehaviour {
         }
         currentPlayer = playerList[currentPlayerTurn];
         SetActivePlayerText(currentPlayer);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Return))
         {
             NextPlayer();

@@ -15,8 +15,8 @@ public class LevelCreater : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        CreateMap();
-        SetOwners();
+        //CreateMap();
+        //SetOwners();
     }
 	
 	// Update is called once per frame
