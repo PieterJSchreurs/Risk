@@ -17,7 +17,7 @@ public class LevelCreater : MonoBehaviour {
     void Start () {
         CreateMap();
         SetOwners();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

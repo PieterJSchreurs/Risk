@@ -15,10 +15,10 @@ public class PlayerTurnHandler : MonoBehaviour {
 
 
 
-    private Color32[] colorListNormal = { new Color32(200, 0, 0, 128), new Color32(0, 200, 0, 128), new Color32(10, 10, 150, 128), new Color32(200, 200, 0, 128),
+    private Color32[] colorListHighlighted = { new Color32(200, 0, 0, 128), new Color32(0, 200, 0, 128), new Color32(10, 10, 150, 128), new Color32(200, 200, 0, 128),
         new Color32(200, 0, 200, 128), new Color32(0, 200, 200, 128), };
 
-    private Color32[] colorListHighlighted = { new Color32(255, 0, 0, 255), new Color32(0, 255, 0, 255), new Color32(0, 0, 255, 255), new Color32(255, 255, 0, 255),
+    private Color32[] colorListNormal = { new Color32(255, 0, 0, 255), new Color32(0, 255, 0, 255), new Color32(0, 0, 255, 255), new Color32(255, 255, 0, 255),
         new Color32(255, 0, 255, 255), new Color32(0, 255, 255, 255), };
 
     // Use this for initialization

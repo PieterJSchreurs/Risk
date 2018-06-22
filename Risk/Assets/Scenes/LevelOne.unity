@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6691177, g: 0.6691177, b: 0.6691177, a: 0.647}
+  m_Color: {r: 0.6691177, g: 0.6691177, b: 0.6691177, a: 0.972}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -960,6 +960,8 @@ GameObject:
   m_Component:
   - component: {fileID: 352727841}
   - component: {fileID: 352727842}
+  - component: {fileID: 352727843}
+  - component: {fileID: 352727844}
   m_Layer: 0
   m_Name: Country6
   m_TagString: Untagged
@@ -1024,6 +1026,29 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!65 &352727843
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352727840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.42, y: 2.3900006, z: 0.20000005}
+  m_Center: {x: 0.00000023841858, y: -0.00000035762787, z: -0.000000059604645}
+--- !u!114 &352727844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352727840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &421839411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1131,8 @@ GameObject:
   m_Component:
   - component: {fileID: 430836006}
   - component: {fileID: 430836007}
+  - component: {fileID: 430836008}
+  - component: {fileID: 430836009}
   m_Layer: 0
   m_Name: Country8
   m_TagString: Untagged
@@ -1170,6 +1197,29 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!65 &430836008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 430836005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.23, y: 2.9000008, z: 0.20000005}
+  m_Center: {x: 0, y: 0.00000023841858, z: -0.000000059604645}
+--- !u!114 &430836009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 430836005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450773314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,13 +1231,14 @@ GameObject:
   - component: {fileID: 450773317}
   - component: {fileID: 450773316}
   - component: {fileID: 450773315}
+  - component: {fileID: 450773319}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &450773315
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1265,6 +1316,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &450773319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 450773314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &479805328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,8 +1423,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 1.4, z: 0.20000005}
-  m_Center: {x: 0, y: 0.00000047683716, z: -0.000000059604645}
+  m_Size: {x: 2.3, y: 0.92, z: 0.20000005}
+  m_Center: {x: -0.09, y: 0.23, z: 0.07}
 --- !u!1 &485050979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1507,8 @@ GameObject:
   m_Component:
   - component: {fileID: 490301208}
   - component: {fileID: 490301209}
+  - component: {fileID: 490301210}
+  - component: {fileID: 490301211}
   m_Layer: 0
   m_Name: Country4
   m_TagString: Untagged
@@ -1509,6 +1573,29 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!65 &490301210
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490301207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.63, y: 3.1000006, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: -0.000000029802322}
+--- !u!114 &490301211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490301207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &522048111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2377,77 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002, z: -51.75}
   m_Center: {x: 0, y: 0, z: -25.69}
+--- !u!1 &888174180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 888174183}
+  - component: {fileID: 888174182}
+  - component: {fileID: 888174181}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!154 &888174181
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888174180}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 34fa4ab862588ff4da4a9fc8e481b20b, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &888174182
+Terrain:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888174180}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_TerrainData: {fileID: 15600000, guid: 34fa4ab862588ff4da4a9fc8e481b20b, type: 2}
+  m_TreeDistance: 2000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_CastShadows: 1
+  m_DrawHeightmap: 1
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialType: 0
+  m_LegacySpecular:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_LegacyShininess: 0.078125
+  m_MaterialTemplate: {fileID: 0}
+  m_BakeLightProbesForTrees: 1
+  m_ScaleInLightmap: 0.0512
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!4 &888174183
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888174180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &924994226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2877,7 @@ GameObject:
   - component: {fileID: 1427892658}
   - component: {fileID: 1427892659}
   - component: {fileID: 1427892660}
+  - component: {fileID: 1427892661}
   m_Layer: 0
   m_Name: Country2
   m_TagString: Untagged
@@ -2794,6 +2953,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1427892661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1427892657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.92, y: 3.1500008, z: 0.20000005}
+  m_Center: {x: -0.00000047683716, y: 0.00000047683716, z: -0.000000059604645}
 --- !u!1 &1450285243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,7 +3028,7 @@ Canvas:
   m_GameObject: {fileID: 1450285243}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 660843410}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -3590,6 +3761,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1906330519}
   - component: {fileID: 1906330520}
+  - component: {fileID: 1906330521}
+  - component: {fileID: 1906330522}
   m_Layer: 0
   m_Name: Country3
   m_TagString: Untagged
@@ -3654,6 +3827,29 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!65 &1906330521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906330518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.03, y: 2.1600006, z: 0.20000005}
+  m_Center: {x: 0, y: 0.00000023841858, z: -0.000000029802322}
+--- !u!114 &1906330522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906330518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1910638155
 GameObject:
   m_ObjectHideFlags: 0
@@ -3663,6 +3859,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1910638156}
   - component: {fileID: 1910638157}
+  - component: {fileID: 1910638158}
+  - component: {fileID: 1910638159}
   m_Layer: 0
   m_Name: Country9
   m_TagString: Untagged
@@ -3727,6 +3925,29 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!65 &1910638158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910638155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.37, y: 3.3900008, z: 0.20000005}
+  m_Center: {x: 0.00000011920929, y: 0.00000023841858, z: -0.000000029802322}
+--- !u!114 &1910638159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910638155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1935255180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,6 +4022,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1949810582}
   - component: {fileID: 1949810583}
+  - component: {fileID: 1949810584}
+  - component: {fileID: 1949810585}
   m_Layer: 0
   m_Name: Country5
   m_TagString: Untagged
@@ -3865,6 +4088,29 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!65 &1949810584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949810581}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.19, y: 2.2700005, z: 0.20000005}
+  m_Center: {x: 0, y: -0.00000023841858, z: -0.000000059604645}
+--- !u!114 &1949810585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949810581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1977584771
 GameObject:
   m_ObjectHideFlags: 0
@@ -4106,6 +4352,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2099395325}
   - component: {fileID: 2099395326}
+  - component: {fileID: 2099395327}
+  - component: {fileID: 2099395328}
   m_Layer: 0
   m_Name: Country7
   m_TagString: Untagged
@@ -4170,6 +4418,29 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!65 &2099395327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2099395324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.81, y: 2.8300006, z: 0.20000005}
+  m_Center: {x: 0.00000011920929, y: 0.00000047683716, z: -0.000000029802322}
+--- !u!114 &2099395328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2099395324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85f115f84922cd4c84882be6501ce0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2103566685
 GameObject:
   m_ObjectHideFlags: 0

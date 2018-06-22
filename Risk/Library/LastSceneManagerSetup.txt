@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/LevelOne.unity
+- path: C:/Users/piete/Documents/Quartile4/Procedural/Lec3_AdvancedMeshes_SV/AdvancedMeshes/Assets/scene1.unity
   isLoaded: 1
   isActive: 1
