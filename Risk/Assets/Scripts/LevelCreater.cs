@@ -1,54 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class LevelCreater : MonoBehaviour {
+public class LevelCreater : MonoBehaviour
+{
 
-    public Country countryPrefab;
-    public int mapWidth = 0;
-    public int mapLength = 0;
     private List<Country> countryList = new List<Country>();
-    
+    private int amountOfLandForEachPlayer;
+    private int oddLandLeft;
+    private List<Player> playerList;
 
-    private string[] countryNames = {"Descovania", "Teshoyca", "Caswar","Xoflington","Skole", "Spuebia","Osnein","Ofror", "Skoel Chana","Pleob Drela Oskeilia",
-        "Pecreijan", "Bechil","Kuglon","Spaurhiel", "Smuoce","Ofrijan"," Ofrurg", "Gloa Strya","Spoik Smax","Oskeilia" };
-
-    // Use this for initialization
-    void Start () {
-        //CreateMap();
-        //SetOwners();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    private void CreateMap()
+    public void Start()
     {
-        for (int rows = 0; rows < mapWidth; rows++)
+        SetUpLists();
+        amountOfLandForEachPlayer = (int)(countryList.Count / PlayerTurnHandler.amountOfPlayers);
+        oddLandLeft = (int)(countryList.Count % PlayerTurnHandler.amountOfPlayers);
+
+        playerList = PlayerTurnHandler.GetPlayerList();
+        SetOwners();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void SetUpLists()
+    {
+        Transform[] allChildren = this.GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
         {
-            for (int cols = 0; cols < mapLength; cols++)
-            {
-                Country country = Instantiate(countryPrefab);
-                country.SetName(countryNames[Random.Range(0, countryNames.Length)]);
-                country.transform.position = new Vector3(rows * country.transform.localScale.x, 0.25f, country.transform.localScale.z * cols);
-                country.transform.parent = this.transform;
-                countryList.Add(country);
-            }
+            if (child.gameObject.tag == "Country")
+            { countryList.Add(child.GetComponent<Country>()); }
         }
+        countryList = countryList.OrderBy(country => Random.Range(0, 5)).ToList();
+
     }
 
     private void SetOwners()
     {
-        List<Player> playerList = PlayerTurnHandler.GetPlayerList();
-        int amountOfLandForEachPlayer = (int)(countryList.Count / PlayerTurnHandler.amountOfPlayers);
+        //Debug.Log(playerList.Count + " " + countryList.Count + " " + amountOfLandForEachPlayer );
         for (int playerNumber = 0; playerNumber < playerList.Count; playerNumber++)
         {
             for (int i = 0; i < amountOfLandForEachPlayer; i++)
             {
-                Country country = countryList[i + (playerNumber * playerList.Count)];
+                Country country = countryList[i + (playerNumber * amountOfLandForEachPlayer)];
+               // Debug.Log(country.countryName);
+               //// Debug.Log("Setting player owner");
                 country.SetPlayerOwner(playerList[playerNumber]);
+            }
+            if (oddLandLeft != 0)
+            {
+                Country country = countryList[(countryList.Count) - oddLandLeft];
+                country.SetPlayerOwner(playerList[playerNumber]);
+                oddLandLeft--;
             }
         }
     }

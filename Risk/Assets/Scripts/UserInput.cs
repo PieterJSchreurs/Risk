@@ -12,6 +12,8 @@ public class UserInput : MonoBehaviour
     private Player _currentPlayersturn;
     public GameObject attackPanelObject;
     private AttackPanel _attackPannel;
+    public CountryHandler countryHandler;
+
 
     private void Awake()
     {
@@ -52,6 +54,7 @@ public class UserInput : MonoBehaviour
         GameObject hitObject = FindHitObject();
         if (hitObject != null)
         {
+           
             if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
             {
                 if (_currentSelectedCountry != null)
@@ -59,6 +62,7 @@ public class UserInput : MonoBehaviour
                 Country country = hitObject.GetComponent<Country>();
                 country.Select();
                 _currentSelectedCountry = country;
+                countryHandler.SetSelectedCountry(country);
             }
         }
     }
@@ -79,11 +83,26 @@ public class UserInput : MonoBehaviour
         {
             if (hitObject.GetComponent<ISelectAble>() != null && hitObject.tag == "Country")
             {
-                Country attackedCountry = hitObject.GetComponent<Country>();
-                //Check if the two countries are connected.
-                //Check if the country is enemy.
-                attackPanelObject.SetActive(true);
-                _attackPannel.StartAttack(_currentSelectedCountry, attackedCountry);
+                Country clickedCountry = hitObject.GetComponent<Country>();
+                _currentPlayersturn = PlayerTurnHandler.GetCurrentPlayer();
+                Player countryOwner = clickedCountry.GetPlayerOwner();
+
+                if (PlayerTurnHandler.CurrentGameMode == PlayerTurnHandler.GameMode.Reinforcement)
+                {
+                    if (_currentPlayersturn == countryOwner && _currentPlayersturn.reinforcementsAvailable > 0)
+                    {
+                        clickedCountry.AddArmy();
+                        _currentPlayersturn.reinforcementsAvailable--;
+                    }
+                }
+                else if (PlayerTurnHandler.CurrentGameMode == PlayerTurnHandler.GameMode.Attack)
+                {
+                    //Check if the two countries are connected.
+                    //Check if the country is enemy.
+                    attackPanelObject.SetActive(true);
+                    _attackPannel.StartAttack(_currentSelectedCountry, clickedCountry);
+                }
+                countryHandler.SetSelectedCountry(_currentSelectedCountry);
             }
         }
     }
@@ -91,7 +110,6 @@ public class UserInput : MonoBehaviour
     public void CloseAttackScreen()
     {
         attackPanelObject.SetActive(false);
-        Debug.Log("closing attack panel");
     }
 
     private void RotateCamera()
@@ -122,7 +140,6 @@ public class UserInput : MonoBehaviour
         float screenY = Screen.height;
 
         ScreenScroller(xpos, ypos, screenX, screenY);
-
     }
 
     private void ScreenScroller(float xpos, float ypos, float screenX, float screenY)

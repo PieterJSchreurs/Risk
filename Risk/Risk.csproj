@@ -287,6 +287,7 @@
     <Compile Include="Assets\Scripts\AttackPanel.cs" />
     <Compile Include="Assets\Scripts\Country.cs" />
     <Compile Include="Assets\Scripts\CountryHandler.cs" />
+    <Compile Include="Assets\Scripts\GameSetup.cs" />
     <Compile Include="Assets\Scripts\ISelectAble.cs" />
     <Compile Include="Assets\Scripts\LevelCreater.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

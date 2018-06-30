@@ -8,7 +8,7 @@ public class Country : MonoBehaviour, ISelectAble
 
     private bool _isSelected = false;
     private Renderer _meshRenderer;
-    private Player _playerOwner;
+    public Player _playerOwner;
     public string countryName;
     private Color32 _currentColor;
     private CountryHandler _countryHandler;
@@ -18,16 +18,14 @@ public class Country : MonoBehaviour, ISelectAble
     void Awake()
     {
         _meshRenderer = GetComponent<SpriteRenderer>();
-        _map = GameObject.FindGameObjectWithTag("Map");
-        _countryHandler = _map.GetComponent<CountryHandler>();
-        _currentArmyOnCountry.amountOfSoldiers = 100;
-      
     }
 
-    public void Start()
+    void Start()
     {
-        _playerOwner = PlayerTurnHandler.GetCurrentPlayer();
-        _meshRenderer.material.color = _playerOwner.playerColor;
+        _map = GameObject.FindGameObjectWithTag("Map");
+        _countryHandler = _map.GetComponent<CountryHandler>();
+        _currentArmyOnCountry.amountOfSoldiers = 1;
+
     }
 
     public Army getArmy()
@@ -77,7 +75,7 @@ public class Country : MonoBehaviour, ISelectAble
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     public Player GetPlayerOwner()
@@ -89,11 +87,17 @@ public class Country : MonoBehaviour, ISelectAble
     {
         _playerOwner = player;
         _meshRenderer.material.color = _playerOwner.playerColor;
+        player.countryList.Add(this);
     }
 
     public void SetName(string name)
     {
         countryName = name;
+    }
+
+    public void AddArmy()
+    {
+        _currentArmyOnCountry.amountOfSoldiers++;
     }
 
     public string GetName()
